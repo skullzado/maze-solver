@@ -28,6 +28,12 @@ class Window:
         self.__running = False
 
 
+class Point:
+    def __init__(self, x, y) -> None:
+        self.x = x
+        self.y = y
+
+
 class Line:
     def __init__(self, p1, p2) -> None:
         self.p1 = p1
