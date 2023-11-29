@@ -5,11 +5,12 @@ class Window:
     def __init__(self, width, height) -> None:
         self.width = width
         self.height = height
-        self.root_widget = Tk()
-        self.title = self.root_widget.title
+        self.__root = Tk()
+        self.title = self.__root.title
         self.canvas = Canvas()
         self.canvas.pack()
         self.running = False
+        self.__root.protocol("WM_DELETE_WINDOW", self.close)
 
     def redraw(self):
         self.__root.update_idletasks()
@@ -23,3 +24,9 @@ class Window:
         self.running = False
 
 
+def main():
+    win = Window(800, 600)
+    win.wait_for_close()
+
+
+main()
